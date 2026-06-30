@@ -1,0 +1,52 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Carpeta donde Decap CMS guarda las imágenes que el gerente suba desde el panel
+media_folder: "imagenes/avisos-cms"
+public_folder: "/imagenes/avisos-cms"
+
+collections:
+  - name: "avisos"
+    label: "Avisos de Servicio"
+    folder: "content/avisos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime", format: "DD [de] MMMM [de] YYYY" }
+      - label: "Tipo de aviso"
+        name: "tipo_etiqueta"
+        widget: "select"
+        options: ["Corte de Servicio", "Mantenimiento", "Aseo"]
+        default: "Corte de Servicio"
+      - { label: "Foto (opcional)", name: "imagen", widget: "image", required: false }
+      - { label: "Descripción", name: "body", widget: "text" }
+
+  - name: "noticias"
+    label: "Noticias y Publicaciones"
+    folder: "content/noticias"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime", format: "DD [de] MMMM [de] YYYY" }
+      - label: "Categoría"
+        name: "tipo_etiqueta"
+        widget: "select"
+        options: ["Noticia", "Comunidad", "Institucional"]
+        default: "Noticia"
+      - { label: "Foto (opcional)", name: "imagen", widget: "image", required: false }
+      - { label: "Descripción", name: "body", widget: "text" }
+
+  - name: "videos"
+    label: "Vídeos Institucionales"
+    folder: "content/videos"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha", name: "date", widget: "datetime", format: "DD [de] MMMM [de] YYYY" }
+      - { label: "Portada del video (opcional)", name: "imagen", widget: "image", required: false }
+      - { label: "Enlace del video (YouTube o archivo)", name: "video_url", widget: "string", required: false }
+      - { label: "Descripción", name: "body", widget: "text" }

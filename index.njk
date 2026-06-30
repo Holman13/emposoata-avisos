@@ -1,0 +1,182 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Avisos y Publicaciones – EMPOSOATÁ E.S.P.</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Poppins:wght@700&family=PT+Sans:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html, body { height: auto; background: rgb(223, 236, 247); color: black; font-family: 'Roboto', sans-serif; }
+
+    .top-header {
+      position: relative; text-align: center; padding: 20px;
+      background: linear-gradient(135deg, #0057d9, #0091ff); color: white;
+    }
+    .top-header::after {
+      content: ""; position: absolute; bottom: -1px; left: 0; width: 100%; height: 60px;
+      background: rgb(223, 236, 247); clip-path: ellipse(50% 60% at 50% 100%);
+    }
+    .top-header h1 { margin: 9px 0 25px; font-size: 3rem; font-family: 'Rubik', sans-serif; font-weight: 600; color: white; }
+    .subtitle { margin: 9.5px 0 47px; font-size: 1rem; font-family: 'Montserrat', sans-serif; color: white; opacity: .9; }
+
+    .novedades-section { max-width: 1200px; margin: 0 auto; padding: 10px 20px 50px; }
+    .novedades-grupo { margin-bottom: 48px; }
+    .novedades-grupo-titulo {
+      display: flex; align-items: center; gap: 12px; font-family: 'Rubik', sans-serif;
+      font-weight: 700; font-size: 1.4rem; color: #064420; margin-bottom: 20px;
+      padding-bottom: 10px; border-bottom: 3px solid #0091ff;
+    }
+    .novedades-grupo-titulo i { font-size: 1.3rem; color: #0057d9; }
+    .novedades-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
+
+    .aviso-card {
+      background: #fff; border-radius: 30px 5px 30px 5px; border-bottom: 8px solid #0057d9;
+      box-shadow: 0 2px 4px rgba(0,0,0,.08), 0 8px 20px rgba(0,0,0,.10);
+      overflow: hidden; display: flex; flex-direction: column;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .aviso-card:hover { transform: translateY(-6px); box-shadow: 0 6px 10px rgba(0,0,0,.10), 0 18px 35px rgba(0,0,0,.20); }
+    .aviso-card.tipo-corte { border-bottom-color: #d93025; }
+    .aviso-card.tipo-video { border-bottom-color: #064420; }
+    .aviso-card.tipo-noticia { border-bottom-color: #0057d9; }
+
+    .aviso-card-media { position: relative; width: 100%; aspect-ratio: 16/9; background: #0e1c2c; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .aviso-card-media img { width: 100%; height: 100%; object-fit: cover; border: none; display: block; }
+    .aviso-card-media .sin-imagen { color: #5b6b78; font-family: 'Source Sans Pro', sans-serif; font-size: .85rem; }
+
+    .aviso-card-badge {
+      position: absolute; top: 12px; left: 12px; font-family: 'Montserrat', sans-serif;
+      font-weight: 600; font-size: .7rem; text-transform: uppercase; letter-spacing: .04em;
+      padding: 5px 12px; border-radius: 20px; color: #fff;
+    }
+    .badge-corte { background: #d93025; }
+    .badge-video { background: #064420; }
+    .badge-noticia { background: #0057d9; }
+
+    .aviso-card-body { padding: 18px 20px 20px; flex: 1; display: flex; flex-direction: column; }
+    .aviso-card-fecha {
+      font-family: 'Montserrat', sans-serif; font-size: .78rem; color: #0057d9; font-weight: 600;
+      display: flex; align-items: center; gap: 6px; margin-bottom: 8px;
+    }
+    .aviso-card-titulo { font-family: 'Open Sans', sans-serif; font-weight: 700; font-size: 1.08rem; color: #14202b; margin-bottom: 8px; line-height: 1.3; }
+    .aviso-card-texto { font-family: 'Source Sans Pro', sans-serif; font-size: .92rem; color: #44525c; line-height: 1.5; flex: 1; margin-bottom: 14px; }
+    .sin-contenido { font-family: 'Source Sans Pro', sans-serif; color: #44525c; font-size: .95rem; padding: 10px 0 20px; }
+
+    footer {
+      font-family: 'Montserrat', sans-serif !important; font-weight: 600 !important; font-size: .9rem;
+      color: white; text-align: center; padding: 15px; background-color: #0080E6;
+      border-top: 3px solid #0057d9; margin-top: 36px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-header">
+    <h1>Avisos y Publicaciones</h1>
+    <p class="subtitle">Cortes de servicio, noticias institucionales y contenido educativo de EMPOSOATÁ E.S.P.</p>
+  </header>
+
+  <section class="novedades-section">
+
+    <!-- ===== AVISOS DE SERVICIO ===== -->
+    <div class="novedades-grupo" id="avisos">
+      <h2 class="novedades-grupo-titulo"><i class="fa-solid fa-triangle-exclamation"></i> Avisos de Servicio</h2>
+      {% if collections.avisos.length %}
+      <div class="novedades-grid">
+        {% for item in collections.avisos %}
+        <article class="aviso-card tipo-corte">
+          <div class="aviso-card-media">
+            {% if item.data.imagen %}
+              <img src="{{ item.data.imagen }}" alt="{{ item.data.title }}" />
+            {% else %}
+              <span class="sin-imagen">Sin imagen</span>
+            {% endif %}
+            <span class="aviso-card-badge badge-corte">{{ item.data.tipo_etiqueta }}</span>
+          </div>
+          <div class="aviso-card-body">
+            <span class="aviso-card-fecha"><i class="fa-regular fa-calendar"></i> {{ item.data.date | readableDate }}</span>
+            <h3 class="aviso-card-titulo">{{ item.data.title }}</h3>
+            <div class="aviso-card-texto">{{ item.templateContent | safe }}</div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      {% else %}
+        <p class="sin-contenido">Todavía no hay avisos publicados.</p>
+      {% endif %}
+    </div>
+
+    <!-- ===== NOTICIAS Y PUBLICACIONES ===== -->
+    <div class="novedades-grupo" id="noticias">
+      <h2 class="novedades-grupo-titulo"><i class="fa-solid fa-newspaper"></i> Noticias y Publicaciones</h2>
+      {% if collections.noticias.length %}
+      <div class="novedades-grid">
+        {% for item in collections.noticias %}
+        <article class="aviso-card tipo-noticia">
+          <div class="aviso-card-media">
+            {% if item.data.imagen %}
+              <img src="{{ item.data.imagen }}" alt="{{ item.data.title }}" />
+            {% else %}
+              <span class="sin-imagen">Sin imagen</span>
+            {% endif %}
+            <span class="aviso-card-badge badge-noticia">{{ item.data.tipo_etiqueta }}</span>
+          </div>
+          <div class="aviso-card-body">
+            <span class="aviso-card-fecha"><i class="fa-regular fa-calendar"></i> {{ item.data.date | readableDate }}</span>
+            <h3 class="aviso-card-titulo">{{ item.data.title }}</h3>
+            <div class="aviso-card-texto">{{ item.templateContent | safe }}</div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      {% else %}
+        <p class="sin-contenido">Todavía no hay noticias publicadas.</p>
+      {% endif %}
+    </div>
+
+    <!-- ===== VÍDEOS INSTITUCIONALES ===== -->
+    <div class="novedades-grupo" id="videos">
+      <h2 class="novedades-grupo-titulo"><i class="fa-solid fa-video"></i> Vídeos Institucionales</h2>
+      {% if collections.videos.length %}
+      <div class="novedades-grid">
+        {% for item in collections.videos %}
+        <article class="aviso-card tipo-video">
+          <div class="aviso-card-media">
+            {% if item.data.imagen %}
+              <img src="{{ item.data.imagen }}" alt="{{ item.data.title }}" />
+            {% else %}
+              <span class="sin-imagen">Sin imagen</span>
+            {% endif %}
+            <span class="aviso-card-badge badge-video">Vídeo</span>
+          </div>
+          <div class="aviso-card-body">
+            <span class="aviso-card-fecha"><i class="fa-regular fa-calendar"></i> {{ item.data.date | readableDate }}</span>
+            <h3 class="aviso-card-titulo">{{ item.data.title }}</h3>
+            <div class="aviso-card-texto">{{ item.templateContent | safe }}</div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      {% else %}
+        <p class="sin-contenido">Todavía no hay vídeos publicados.</p>
+      {% endif %}
+    </div>
+
+  </section>
+
+  <footer>
+    &copy; 2026 EMPOSOATÁ E.S.P. — Empresa de Acueducto, Alcantarillado y Aseo. Todos los derechos reservados.
+  </footer>
+
+</body>
+</html>
